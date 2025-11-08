@@ -24,7 +24,7 @@ export const ContactForm = () => {
   };
 
   return (
-    <section className="py-20 bg-muted">
+    <section id="contact" className="py-20 bg-muted">
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-12">GET IN TOUCH</h2>

@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 
 export const About = () => {
   return (
-    <section className="py-20 bg-background">
+    <section id="about" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-sm font-semibold text-primary mb-4 tracking-wider">ABOUT US</p>

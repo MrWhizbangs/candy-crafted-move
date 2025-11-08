@@ -22,7 +22,7 @@ const locations = [
 
 export const Locations = () => {
   return (
-    <section className="py-20 bg-background">
+    <section id="locations" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <p className="text-sm font-semibold text-primary mb-4 tracking-wider">LOCATIONS</p>
