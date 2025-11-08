@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 
@@ -76,19 +75,12 @@ export const ContactForm = () => {
 
             <div className="space-y-2">
               <Label htmlFor="subject">What would you like to discuss?</Label>
-              <Select value={formData.subject} onValueChange={(value) => setFormData({ ...formData, subject: value })}>
-                <SelectTrigger id="subject">
-                  <SelectValue placeholder="Choose a Subject" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="product">Product Question</SelectItem>
-                  <SelectItem value="collaboration">Collaboration</SelectItem>
-                  <SelectItem value="events">Events</SelectItem>
-                  <SelectItem value="store">Store</SelectItem>
-                  <SelectItem value="location">Suggest Location</SelectItem>
-                  <SelectItem value="gifts">Gifts</SelectItem>
-                </SelectContent>
-              </Select>
+              <Input
+                id="subject"
+                placeholder="Tell us what you'd like to discuss"
+                value={formData.subject}
+                onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+              />
             </div>
 
             <Button type="submit" variant="hero" size="lg" className="w-full">
