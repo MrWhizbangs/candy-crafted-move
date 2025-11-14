@@ -11,8 +11,8 @@ export const About = () => {
           </h2>
           <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
             At Whizbangs, we don't just make candy — we make moments. From bold flavors to bright packaging, 
-            every Whizbangs product is crafted to surprise and delight. With locations popping up in select malls, 
-            we're on a mission to bring back the magic of the candy shop — one sweet experience at a time.
+            every Whizbangs product is crafted to surprise and delight. With locations popping up in select locations, 
+            we're on a mission to bring back the magic of the candy shop — with a WhizBANG!
           </p>
           <Button variant="hero" size="lg">
             WHERE TO FIND US
