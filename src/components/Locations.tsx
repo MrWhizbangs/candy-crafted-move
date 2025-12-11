@@ -2,21 +2,25 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import miamiStore from "@/assets/miami-store.jpg";
 import burlingtonStore from "@/assets/burlington-store.jpg";
+import { trackEvent } from "@/lib/analytics";
 
 const locations = [
   {
+    id: "miami",
     image: miamiStore,
     title: "Dolphin Mall, Miami",
     description: "Located at Ramblas 3, discover exclusive candies and snacks from around the globe and unique makers you won't find anywhere else. Our playful, wonder-filled store invites families and candy lovers to explore, indulge, and create joyful memories. Visit us for a delightful experience that's as fun as it is delicious!",
     link: "/locations/miami"
   },
   {
+    id: "burlington",
     image: burlingtonStore,
     title: "Burlington, Vermont",
     description: "Whizbangs Burlington is located in the Church Street Open Air Mall where you'll find historical architecture, year-round festivals, and of course your favorite treat at Whizbangs!",
     link: "/locations/burlington"
   },
   {
+    id: "coming-soon",
     image: miamiStore,
     title: "More coming soon",
     description: "We are working hard to bring Whizbangs to more cities. Want us to open close to you? Send us a message and let us know!",
@@ -54,7 +58,18 @@ export const Locations = () => {
             );
 
             return location.link ? (
-              <Link key={index} to={location.link} className="block">
+              <Link
+                key={index}
+                to={location.link}
+                className="block"
+                onClick={() => {
+                  trackEvent('location_card_click', {
+                    event_category: 'navigation',
+                    event_label: location.id,
+                    location_name: location.title,
+                  });
+                }}
+              >
                 {cardContent}
               </Link>
             ) : (

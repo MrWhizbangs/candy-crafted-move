@@ -39,9 +39,9 @@ export const Navigation = () => {
             <Button
               variant="hero"
               size="sm"
-              onClick={() => scrollToSection('contact')}
+              onClick={() => window.open('https://candyswipe.whizbangscandy.com', '_blank')}
             >
-              GET IN TOUCH
+              PLAY THE GAME
             </Button>
           </div>
 

@@ -3,6 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 export const ContactForm = () => {
   const { toast } = useToast();
@@ -13,9 +14,26 @@ export const ContactForm = () => {
     phone: "",
     subject: ""
   });
+  const [hasInteracted, setHasInteracted] = useState(false);
+
+  const handleFormInteraction = () => {
+    if (!hasInteracted) {
+      setHasInteracted(true);
+      trackEvent('contact_form_start', {
+        event_category: 'engagement',
+        event_label: 'contact_form',
+      });
+    }
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    trackEvent('contact_form_submit', {
+      event_category: 'engagement',
+      event_label: 'contact_form',
+    });
+
     toast({
       title: "Message sent!",
       description: "We'll get back to you soon.",
@@ -38,6 +56,7 @@ export const ContactForm = () => {
                   required
                   value={formData.firstName}
                   onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                  onFocus={handleFormInteraction}
                 />
               </div>
               <div className="space-y-2">

@@ -1,6 +1,13 @@
 import { Button } from "@/components/ui/button";
 
 export const About = () => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="about" className="py-20 bg-background">
       <div className="container mx-auto px-4">
@@ -10,11 +17,11 @@ export const About = () => {
             Curated Treats<br />For Curious Tastes
           </h2>
           <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-            At Whizbangs, we don't just make candy — we make moments. From bold flavors to bright packaging, 
-            every Whizbangs product is crafted to surprise and delight. With locations popping up in select locations, 
+            At Whizbangs, we don't just make candy — we make moments. From bold flavors to bright packaging,
+            every Whizbangs product is crafted to surprise and delight. With locations popping up in select locations,
             we're on a mission to bring back the magic of the candy shop — with a WhizBANG!
           </p>
-          <Button variant="hero" size="lg">
+          <Button variant="hero" size="lg" onClick={() => scrollToSection('locations')}>
             WHERE TO FIND US
           </Button>
         </div>
