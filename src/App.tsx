@@ -28,7 +28,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter basename="/candy-crafted-move">
+      <BrowserRouter basename="/">
         <AnalyticsTracker />
         <Routes>
           <Route path="/" element={<Index />} />
